@@ -1,14 +1,11 @@
 FROM golang:1.14.0-alpine3.11
 
-COPY . /
+RUN apk update && apk add --no-cache git
+
 WORKDIR /
 
-RUN apk add git
-RUN go get -u github.com/gorilla/mux     
-RUN go build -o main .
+# COPY . .
 
-
-# Run the executable
-CMD ["./main"]
+CMD ["go", "run", "main.go"]
 
 EXPOSE 8000
