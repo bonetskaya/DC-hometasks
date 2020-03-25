@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache git
 
 WORKDIR /
 
-# COPY . .
+COPY . .
 
 CMD ["go", "run", "main.go"]
 
